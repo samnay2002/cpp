@@ -4,7 +4,7 @@ class stack
 {
 private:
     int top;
-    int total;       //its created for checking stackoverflow
+    int total; // its created for checking stackoverflow
     int array[1000];
 
 public:
@@ -68,15 +68,8 @@ public:
     // acces the item at the nth position
     void peek(int n)
     {
-        if (top == -1)
-        {
-            cout << "stack is underflow:";
-        }
-        else
-        {
-            cout << "the peeked element is :";
-            cout << array[n];
-        }
+        cout << "the peeked element is :";
+        cout << array[n];
     }
     void change(int pos, int value)
     {
@@ -85,11 +78,18 @@ public:
     }
     void display()
     {
-        cout << "all values in the stack are:";
-        for (int j = top; j >= 0; j--)
+        if (isempty())
         {
-            cout << endl
-                 << array[j];
+            cout << "stack is underflow:";
+        }
+        else
+        {
+            cout << "all values in the stack are:";
+            for (int j = top; j >= 0; j--)
+            {
+                cout << endl
+                     << array[j];
+            }
         }
     }
 };
@@ -116,10 +116,17 @@ int main()
             sanmay.pop();
             break;
         case 3:
-            cout << endl
-                 << "enter the element position you want to :";
-            cin >> b;
-            sanmay.peek(--b);
+            if (sanmay.isempty())
+            {
+                cout << "stack is underflow:";
+            }
+            else
+            {
+                cout << endl
+                     << "enter the element position you want to peek:";
+                cin >> b;
+                sanmay.peek(--b);
+            }
             break;
         case 4:
             cout << "enter the position you change:";
