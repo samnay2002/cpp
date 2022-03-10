@@ -17,31 +17,31 @@ public:
             array[i] = 0;
         }
     }
-    // bool isfull()
-    // {
-    //     if (top == total)
-    //     {
-    //         return true;
-    //     }
-    //     else
-    //     {
-    //         return false;
-    //     }
-    // }
-    // bool isempty()
-    // {
-    //     if (top == -1)
-    //     {
-    //         return true;
-    //     }
-    //     else
-    //     {
-    //         return false;
-    //     }
-    // }
-    void push(int a)
+    bool isfull()
     {
         if (top == total)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    bool isempty()
+    {
+        if (top == -1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    void push(int a)
+    {
+        if (isfull())
         {
             cout << "stack is overflow" << endl;
         }
@@ -53,7 +53,7 @@ public:
     }
     int pop()
     {
-        if (top == -1)
+        if (isempty())
         {
             cout << "stack is underflow" << endl;
             return (0);
