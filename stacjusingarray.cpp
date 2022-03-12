@@ -66,10 +66,10 @@ public:
         }
     }
     // acces the item at the nth position
-    void peek(int n)
+    void peek()
     {
         cout << "the peeked element is :";
-        cout << array[n];
+        cout << array[top];
     }
     void change(int pos, int value)
     {
@@ -122,10 +122,7 @@ int main()
             }
             else
             {
-                cout << endl
-                     << "enter the element position you want to peek:";
-                cin >> b;
-                sanmay.peek(--b);
+                sanmay.peek();
             }
             break;
         case 4:
