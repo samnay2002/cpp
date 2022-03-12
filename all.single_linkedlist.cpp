@@ -11,7 +11,7 @@ struct Node
 // creating head pointer and equating to NULL
 Node *head = NULL;
 
-// Function to insert at the beginning of linked list
+// Function to insert at the beginning of linked list and the push function of an stack||
 void insertbeg()
 {
     int x, n;
