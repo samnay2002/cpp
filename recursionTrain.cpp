@@ -5,7 +5,88 @@ using namespace std;
 #define vi vector<int>
 #define se set<int>
 #define vvi vector<vector<int>>
-const int N = 100;
+const float N = 3.14;
+// void substrings(string s , string ans)
+// {
+//     if(s.length()==0)
+//     {
+//         cout<<ans<<endl;
+//         return ;
+//     }
+//     char temp = s[0];
+//     int ch = temp;
+//     string ros = s.substr(1);
+//     substrings(ros,ans);
+//     substrings(ros,ans+temp);
+//     substrings(ros,ans+to_string(ch));
+// }
+void substrings(string s , string ans)
+{
+    if(s.length()==0)
+    {
+        cout<<ans<<endl;
+        return ;
+    }
+    char temp = s[0];
+    string ros = s.substr(1);
+    substrings(ros,ans);
+    substrings(ros,ans+temp);
+}
+string sameSTRINGsolve(string s)        // same charectors in a word filtur out
+{
+    if(s.length()==0)
+    {
+        return "";
+    }
+    char temp = s[0];
+    string ans = sameSTRINGsolve(s.substr(1));
+    if(temp == ans[0])
+    {
+        return ans;
+    }
+    else
+    {
+        return temp+ans;
+    }
+}
+string xEND(string s)               //if words contains x then the x shift to the end of the words
+{
+    if(s.length()==0)
+    {
+        return "";
+    }
+    char temp = s[0];
+    string ans = xEND(s.substr(1));
+    if(temp=='x')
+    {
+        return ans+temp;
+    }
+    else
+    {
+        return temp+ans;
+    }
+    return xEND(s.substr(1));
+
+}
+void pi(string s)                   //if word contains the pi then the pi changes to 3.14
+{
+    if(s.length()==0)
+    {
+        return;
+    }
+    string ans ;
+    if(s[0]=='p'&&s[1]=='i')
+    {
+        cout<<PI;
+        ans = s.substr(2);
+    }
+    else
+    {
+        cout<<s[0];
+        ans = s.substr(1);
+    }
+    pi(ans);
+}
 int fibonaci(int n)
 {
 	if(n==2)
